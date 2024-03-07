@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .info-container {
+      width: 70%;
+    }
+
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Informations client:</h2>
+  <div>
+    <div class="info-container">
+      <div class="info-item">
+        <p style="font-weight: bold;">Nom:</p>
+        <p>${customerInformations.lastName}</p>
+      </div>
+      <div class="info-item">
+        <p>Email:</p>
+        <p>${customerInformations.email}</p>
+      </div>
+      <div class="info-item">
+        <p>Téléphone:</p>
+        <p>${customerInformations.phoneNumber}</p>
+      </div>
+      <div>
+        <p>Rue:</p>
+        <p>${customerInformations.address.street}</p>
+      </div>
+      <div>
+        <p>Code postal:</p>
+        <p>${customerInformations.address.zipCode}</p>
+      </div>
+      <div>
+        <p>Ville:</p>
+        <p>${customerInformations.address.city}</p>
+      </div>
+      <div>
+        <p>Pays:</p>
+        <p>${customerInformations.address.country}</p>
+      </div>
+      <div>
+        <p>Email:</p>
+        <p>${customerInformations.email}</p>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <h2>Départ</h2>
+  <div>
+    <div class="container">
+      <div>
+        <p>Date de départ:</p>
+        <p>${formattedDepartureDate}</p>
+      </div>
+      ${
+      time.departureEndDate
+      ? `
+      <div>
+        <p>Date d'arrivée:</p>
+        <p>${formattedArrivalDate}</p>
+      </div>`
+      : ""
+      }
+      <div>
+        <p>Addresse de départ:</p>
+        <p>${startInformations.address.placeName}</p>
+      </div>
+      <div>
+        <p>Étages au départ:</p>
+        <p>${startInformations.floor}</p>
+      </div>
+      <div>
+        <p>Ascenseur au départ:</p>
+        <p>${formattedElevatorStart}</p>
+      </div>
+      <div>
+        <p>Monte-meuble au départ:</p>
+        <p>${formattedFurnituresLiftStart}</p>
+      </div>
+      <div>
+        <p>Distance à pied au départ:</p>
+        <p>${formattedFootDistanceStart}</p>
+      </div>
+      <div>
+        <p>Autorisation de stationnement au départ:</p>
+        <p>${formattedParkingPermitStart}</p>
+      </div>
+    </div>
+  </div>
+  <h2>Arrivée</h2>
+  <div>
+    <div class="container">
+      <div>
+        <p>Addresse d'arrivée:</p>
+        <p>${endInformations.address.placeName}</p>
+      </div>
+      <div>
+        <p>Étages à l'arrivée:</p>
+        <p>${endInformations.floor}</p>
+      </div>
+      <div>
+        <p>Ascenseur à l'arrivée:</p>
+        <p>${formattedElevatorEnd}</p>
+      </div>
+      <div>
+        <p>Monte meuble à l'arrivée:</p>
+        <p>${formattedFurnituresLiftEnd}</p>
+      </div>
+      <div>
+        <p>Distance à pied à l'arrivée:</p>
+        <p>${formattedFootDistanceEnd}</p>
+      </div>
+      <div>
+        <p>Autorisation de stationnement à l'arrivée:</p>
+        <p>${formattedParkingPermitEnd}</p>
+      </div>
+      <div>
+        <p>Distance:</p>
+        <p>${distance} Km</p>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <h2>Inventaire</h2>
+  <hr>
+  <h2>Volumes</h2>
+  <hr>
+  <div class="container">
+    <div>
+      <p>Volume:</p>
+      <p>${volume} m3</p>
+    </div>
+  </div>
+
+  ${
+  heavyObjects.hasHeavyObjects !== false
+  ? `
+  <h2>Objets lourds</h2>
+  <div class="container">
+    ${
+    heavyObjects.items.piano.present !== false
+    ? `<div>
+      <p>Type de piano</p>
+      <p>${displayPianoType}</p>
+    </div>
+    <div>
+      <p>Etages:</p>
+      <p>${heavyObjects.items.piano.floors}</p>
+    </div>`
+    : ""
+    }
+    ${
+    heavyObjects.items.fridge.present !== false
+    ? `<div>
+      <p>Type de frigo</p>
+      <p>${displayFridgeType}</p>
+    </div>
+    <div>
+      <p>Etages:</p>
+      <p>${heavyObjects.items.fridge.floors}</p>
+    </div>`
+    : ""
+    }
+  </div>`
+  : ""
+  }
+</body>
+
+</html>
