@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <th>header1</th>
+      <th>header2</th>
+    </tr>
+    <tr>
+      <td>data1</td>
+      <td>data2</td>
+    </tr>
+    <tr>
+      <td>data1</td>
+      <td>data2</td>
+    </tr>
+  </table>
+  <hr>
+  <form action="/submit-form" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="number">Number:</label>
+    <input type="tel" id="number" name="number" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+  <hr>
+    <h2>"A" occurences checker</h2>
+    <label for="word1">Word 1:</label> <input type="text" id="word1"> <label for="word2">Word 2:</label> <input
+      type="text" id="word2"> <button>Check</button>
+    <div id="result"></div>
+</body>
+</html>
